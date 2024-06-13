@@ -1,0 +1,20 @@
+mace_run_train \
+    --name="MACE_model" \
+    --train_file="data.xyz" \
+    --valid_fraction=0.05 \
+    --test_file="data.xyz" \
+    --energy_key="REF_energy_0" \
+    --forces_key="REF_forces_0" \
+    --config_type_weights='{"Default":1.0}' \
+    --E0s='average' \
+    --model="ScaleShiftMACE" \
+    --hidden_irreps='32x0e + 32x1o' \
+    --r_max=5 \
+    --batch_size=20 \
+    --max_num_epochs=200 \
+    --swa \
+    --start_swa=150 \
+    --ema \
+    --ema_decay=0.99 \
+    --amsgrad \
+    --device=cuda \
